@@ -62,11 +62,8 @@ Keeping lines to a maximum of 79 (or 99) characters helps readers easily parse t
 Wrapped lines should conform to the following guidelines.
 
 1. The first parameter should not be attached to the opening parenthesis.
-
 2. One, and only one, indent should be used.
-
 3. Each parameter should fall on its own line.
-
 4. The terminating element, );, should be placed on the final line by itself.
 
   
@@ -96,17 +93,11 @@ Ordering helps readers identify which functions they can call.
 Functions should be grouped according to their functionality beneath its correspondent header comment with the following names:
 
 * receive (if exists)
-
 * fallback (if exists)
-
 * view
-
 * set
-
 * main (external & public)
-
 * internal (internal & private)
-
 * pure
 
   
@@ -118,11 +109,8 @@ Functions should be grouped according to their functionality beneath its corresp
 Avoid extraneous whitespace in the following situations:
 
 * Immediately inside parenthesis, brackets or braces, with the exception of single line function declarations.
-
 * Immediately before a comma, semicolon.
-
 * More than one space around an assignment or other operator to align with another.
-
 * Don’t include a whitespace in the receive and fallback functions.
 
   
@@ -134,9 +122,7 @@ Avoid extraneous whitespace in the following situations:
 The braces denoting the body of a contract, library, functions and structs should:
 
 * open on the same line as the declaration
-
 * close on their own line at the same indentation level as the beginning of the declaration.
-
 * The opening brace should be preceded by a single space.
 
   
@@ -176,13 +162,9 @@ The opening brace should be preceded by a single space.
 The modifier order for a function should be:
 
 1. Visibility
-
 2. Mutability
-
 3. Virtual
-
 4. Override
-
 5. Custom modifiers
 
   
@@ -252,13 +234,9 @@ Declarations of array variables should not have a space between the type and the
 Layout contract elements in the following order:
 
 1. Pragma statements
-
 2. Import statements
-
 3. Interfaces
-
 4. Libraries
-
 5. Contracts
 
   
@@ -266,17 +244,11 @@ Layout contract elements in the following order:
 Inside each contract, library or interface, use the following order:
 
 1. Type declarations
-
 2. State variables
-
 3. Events
-
 4. Errors
-
 5. Constructor
-
 6. Modifiers
-
 7. Functions
 
   
@@ -306,17 +278,11 @@ To avoid confusion, the following names will be used to refer to different namin
   
 
 * `b` (single lowercase letter)
-
 * `B` (single uppercase letter)
-
 * `lowercase`
-
 * `UPPERCASE`
-
 * `UPPER_CASE_WITH_UNDERSCORES`
-
 * `CapitalizedWords` (or CapWords)
-
 * `mixedCase`
 
   
@@ -326,9 +292,7 @@ To avoid confusion, the following names will be used to refer to different namin
   
 
 * `l` - Lowercase letter el
-
 * `O` - Uppercase letter oh
-
 * `I` - Uppercase letter eye
 
   
@@ -342,9 +306,7 @@ Never use any of these for single letter variable names. They are often indistin
   
 
 * Contracts and libraries should be named using the `CapWords` style.
-
 * Contract and library names should also match their filenames.
-
 * If a contract file includes multiple contracts and/or libraries, then the filename should match the core contract. This is not recommended however if it can be avoided.
 
   
@@ -422,7 +384,6 @@ Enums, in the style of simple type declarations, should be named using the `CapW
   
 
 * singleTrailingUnderscore_
-
 * _singleLeadingUnderscore
 
   
