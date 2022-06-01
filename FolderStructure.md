@@ -1,4 +1,4 @@
-#Degis Core Folder Structure
+# Degis Core Folder Structure
 Indicates root folders. Files are not contained in this structure.
 
 .

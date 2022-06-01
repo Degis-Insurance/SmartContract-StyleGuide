@@ -7,7 +7,7 @@ This guide is intended to provide coding conventions for writing Solidity code, 
 
   
 
-Much of the structure and recommendations has been taken from [Solidity's style guide](https://docs.soliditylang.org/en/v0.8.13/style-guide.html). For examples, please refer to it.
+Much of the structure and recommendations has been taken from [Solidity's style guide](https://docs.soliditylang.org/en/v0.8.13/style-guide.html). For more examples, please refer to it.
 
 code layout/
 ├── indentation
@@ -364,6 +364,14 @@ Functions should use `mixedCase` style.
 
   
 
+###  Private Function Names
+
+  
+
+Private Functions should use `_singleLeadingUnderscore` style.
+
+  
+
 ###  Function Parameter Names
 
   
@@ -410,17 +418,11 @@ Enums, in the style of simple type declarations, should be named using the `CapW
 
 ###  Avoiding Naming Collisions
 
-  
 
-* singleTrailingUnderscore_
-* _singleLeadingUnderscore
 
-  
-
-This convention is suggested when the desired name collides with that of a built-in or otherwise reserved name.
+`singleTrailingUnderscore_` and `_singleLeadingUnderscore` convention is suggested when the desired name collides with that of a built-in or otherwise reserved name.
 
   
-
 ##  NatSpec
 
   
