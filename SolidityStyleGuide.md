@@ -9,7 +9,36 @@ This guide is intended to provide coding conventions for writing Solidity code, 
 
 Much of the structure and recommendations has been taken from [Solidity's style guide](https://docs.soliditylang.org/en/v0.8.13/style-guide.html). For examples, please refer to it.
 
-  
+code layout/
+├── indentation
+├── tabs or spaces
+├── blank lines
+├── maximum line length
+├── source file encoding
+├── imports
+├── order of functions
+├── whitespace in expressions
+├── control structures
+└── function declaration
+mappings
+variable declarations
+other recommendations
+order of layout
+naming convetions/
+├── naming styles
+├── names to avoid
+├── contracts and library names
+├── struct names
+├── event names
+├── function names
+├── function parameter names
+├── local and state variable names
+├── constants
+├── modifier names
+├── enums
+└── avoiding naming collisions
+NatSpec/
+└── tags
 
 ##  Code Layout
 
