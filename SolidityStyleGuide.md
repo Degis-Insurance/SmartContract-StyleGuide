@@ -9,6 +9,9 @@ This guide is intended to provide coding conventions for writing Solidity code, 
 
 Much of the structure and recommendations has been taken from [Solidity's style guide](https://docs.soliditylang.org/en/v0.8.13/style-guide.html). For more examples, please refer to it.
 
+# Table of Content
+
+```
 code layout/
 ├── indentation
 ├── tabs or spaces
@@ -24,6 +27,8 @@ mappings
 variable declarations
 other recommendations
 order of layout
+├── order of functions
+└── template
 naming convetions/
 ├── naming styles
 ├── names to avoid
@@ -37,8 +42,9 @@ naming convetions/
 ├── modifier names
 ├── enums
 └── avoiding naming collisions
-NatSpec/
+NatSpec/comments
 └── tags
+```
 
 ##  Code Layout
 
@@ -51,6 +57,7 @@ NatSpec/
 Use 4 spaces per indentation level.
 
   
+
 
 ###  Tabs or Spaces
 
@@ -76,7 +83,33 @@ Within a contract surround function declarations with a single blank line.
 
   
 
-Blank lines may be omitted between groups of related one-liners (such as stub functions for an abstract contract)
+Blank lines may be omitted between groups of related one-liners (such as stub functions for an abstract contract);
+
+```
+// SPDX-License-Identifier: GPL-3.0
+pragma solidity >=0.6.0 <0.9.0;
+
+abstract contract I {
+    function c() public virtual pure;
+    function d() public virtual pure;
+}
+
+
+contract A is I {
+
+    function c() public virtual pure {
+        // ...
+    }
+    function d() public virtual pure {
+        // ...
+    }
+}
+
+
+contract B {
+    // ...
+}
+```
 
   
 
@@ -95,7 +128,13 @@ Wrapped lines should conform to the following guidelines.
 3. Each parameter should fall on its own line.
 4. The terminating element, );, should be placed on the final line by itself.
 
-  
+```
+thisFunctionCallIsReallyLong(
+    longArgument1,
+    longArgument2,
+    longArgument3
+);
+``` 
 
 ###  Source File Encoding
 
@@ -109,7 +148,48 @@ UTF-8 or ASCII encoding is preferred.
 
 Import statements should always be placed at the top of the file.
 
+```
+// SPDX-License-Identifier: GPL-3.0
+pragma solidity >=0.4.0 <0.9.0;
+
+import "./Owned.sol";
+
+contract A {
+    // ...
+}
+
+
+contract B is Owned {
+    // ...
+}
+```
+
+##  Order of Layout
+
   
+
+Layout contract elements in the following order:
+
+1. Pragma statements
+2. Import statements
+3. Interfaces
+4. Libraries
+5. Contracts
+
+  
+
+Inside each contract, library or interface, use the following order:
+
+1. Type declarations
+2. State variables
+3. Events
+4. Errors
+5. Constructor
+6. Modifiers
+7. Functions
+
+  
+
 
 ###  Order of Functions
 
@@ -126,10 +206,105 @@ Functions should be grouped according to their functionality beneath its corresp
 * view
 * set
 * main (external & public)
-* internal (internal & private)
-* pure
+* internal (internal, private)
 
-  
+include `pure` functions at the end of each function group.
+
+### Template
+
+Include the following template to assist on ordering all contract components.
+
+```
+// SPDX-License-Identifier: GPL-3.0
+
+/*
+ //======================================================================\\
+ //======================================================================\\
+  *******         **********     ***********     *****     ***********
+  *      *        *              *                 *       *
+  *        *      *              *                 *       *
+  *         *     *              *                 *       *
+  *         *     *              *                 *       *
+  *         *     **********     *       *****     *       ***********
+  *         *     *              *         *       *                 *
+  *         *     *              *         *       *                 *
+  *        *      *              *         *       *                 *
+  *      *        *              *         *       *                 *
+  *******         **********     ***********     *****     ***********
+ \\======================================================================//
+ \\======================================================================//
+*/
+
+pragma solidity ^0.8.13;
+
+contract A {
+    // ---------------------------------------------------------------------------------------- //
+    // ************************************* Constants **************************************** //
+    // ---------------------------------------------------------------------------------------- //
+    / ...
+
+    // ---------------------------------------------------------------------------------------- //
+    // ************************************* Variables **************************************** //
+    // ---------------------------------------------------------------------------------------- //
+    / ...
+
+    // ---------------------------------------------------------------------------------------- //
+    // *************************************** Events ***************************************** //
+    // ---------------------------------------------------------------------------------------- //
+    / ...
+
+    // ---------------------------------------------------------------------------------------- //
+    // *************************************** Errors ***************************************** //
+    // ---------------------------------------------------------------------------------------- //
+    / ...
+
+    // ---------------------------------------------------------------------------------------- //
+    // ************************************* Constructor ************************************** //
+    // ---------------------------------------------------------------------------------------- //
+
+    constructor() {
+        // ...
+    }
+
+    receive() external payable {
+        // ...
+    }
+
+    fallback() external {
+        // ...
+    }
+
+    // ---------------------------------------------------------------------------------------- //
+    // ************************************** Modifiers *************************************** //
+    // ---------------------------------------------------------------------------------------- //
+    // ..
+
+    // ---------------------------------------------------------------------------------------- //
+    // *********************************** View Functions ************************************* //
+    // ---------------------------------------------------------------------------------------- //
+    // ...
+
+    // ---------------------------------------------------------------------------------------- //
+    // ************************************* Set Functions ************************************ //
+    // ---------------------------------------------------------------------------------------- //
+    // ...
+
+    // ---------------------------------------------------------------------------------------- //
+    // ************************************ Main Functions ************************************ //
+    // ---------------------------------------------------------------------------------------- //
+    // ...
+
+    // ---------------------------------------------------------------------------------------- //
+    // ********************************** Internal Functions ********************************** //
+    // ---------------------------------------------------------------------------------------- //
+    // ...
+
+    // ---------------------------------------------------------------------------------------- //
+    // *********************************** Pure Functions ************************************* //
+    // ---------------------------------------------------------------------------------------- //
+    // ...
+}
+```
 
 ###  Whitespace in Expressions
 
@@ -141,7 +316,7 @@ Avoid extraneous whitespace in the following situations:
 * Immediately before a comma, semicolon.
 * More than one space around an assignment or other operator to align with another.
 * Don’t include a whitespace in the receive and fallback functions.
-
+`mint(position[1], Coin({name: "degis"}));`
   
 
 ###  Control Structures
@@ -153,7 +328,14 @@ The braces denoting the body of a contract, library, functions and structs shoul
 * open on the same line as the declaration
 * close on their own line at the same indentation level as the beginning of the declaration.
 * The opening brace should be preceded by a single space.
-
+```
+contract Coin {
+    struct Bank {
+        address owner;
+        uint balance;
+    }
+}
+```
   
 
 The same recommendations apply to the control structures if, else, while, and for.
@@ -169,7 +351,20 @@ For control structures whose body contains a single statement, omitting the brac
   
 
 For if blocks which have an else or else if clause, the else should be placed on the same line as the if’s closing brace. This is an exception compared to the rules of other block-like structures.
+```
+if (x < 3) {
+    x += 1;
+} else if (x > 7) {
+    x -= 1;
+} else {
+    x = 5;
+}
 
+if (x < 3)
+    x += 1;
+else
+    x -= 1;
+```
   
 
 ###  Function Declaration
@@ -197,6 +392,11 @@ The modifier order for a function should be:
 5. Custom modifiers
 
   
+```
+function increment(uint x) public pure onlyOwner returns (uint) {
+    return x + 1;
+}
+```
 
 For long function declarations, it is recommended to drop each parameter onto its own line at the same indentation level as the function body. The closing parenthesis and opening bracket should be placed on their own line as well at the same indentation level as the function declaration.
 
@@ -208,14 +408,70 @@ If a long function declaration has modifiers, then each modifier should be dropp
 
 Multiline output parameters and return statements should follow the same style recommended for wrapping long lines found in the `Maximum Line Length` section.
 
+```
+function thisFunctionNameIsReallyLong(
+    address a,
+    address b,
+    address c
+)
+    public
+    returns (
+        address someAddressName,
+        uint256 LongArgument,
+        uint256 Argument
+    )
+{
+    doSomething()
+
+    return (
+        veryLongReturnArg1,
+        veryLongReturnArg2,
+        veryLongReturnArg3
+    );
+}
+```
   
 
 For constructor functions on inherited contracts whose bases require arguments, it is recommended to drop the base constructors onto new lines in the same manner as modifiers if the function declaration is long or hard to read.
+```
+// SPDX-License-Identifier: GPL-3.0
+pragma solidity >=0.7.0 <0.9.0;
+// Base contracts just to make this compile
+contract B {
+    constructor(uint) {
+    }
+}
 
+
+contract C {
+    constructor(uint, uint) {
+    }
+}
+
+
+contract D {
+    constructor(uint) {
+    }
+}
+
+
+contract A is B, C, D {
+    uint x;
+
+    constructor(uint param1, uint param2, uint param3, uint param4, uint param5)
+        B(param1)
+        C(param2, param3)
+        D(param4)
+    {
+        // do something with param5
+        x = param5;
+    }
+}
+```
   
 
 When declaring short functions with a single statement, it is permissible to do it on a single line.
-
+`function shortFunction() public { doSomething(); }`
   
 
 These guidelines for function declarations are intended to improve readability. Authors should use their best judgment as this guide does not try to cover all possible permutations for function declarations.
@@ -254,33 +510,7 @@ Declarations of array variables should not have a space between the type and the
 
 `x = (a+b) * (a-b);`
 
-  
-
-##  Order of Layout
-
-  
-
-Layout contract elements in the following order:
-
-1. Pragma statements
-2. Import statements
-3. Interfaces
-4. Libraries
-5. Contracts
-
-  
-
-Inside each contract, library or interface, use the following order:
-
-1. Type declarations
-2. State variables
-3. Events
-4. Errors
-5. Constructor
-6. Modifiers
-7. Functions
-
-  
+ 
 
 ##  Naming Conventions
 
@@ -420,14 +650,35 @@ Enums, in the style of simple type declarations, should be named using the `CapW
 
 
 
-`singleTrailingUnderscore_` and `_singleLeadingUnderscore` convention is suggested when the desired name collides with that of a built-in or otherwise reserved name.
+`singleTrailingUnderscore_` and `_singleLeadingUnderscore` conventions are suggested when the desired name collides with that of a built-in or otherwise reserved name.
+
+Private and function parameters should prioritize using `_singleLeadingUnderscore`.
 
   
-##  NatSpec
+##  NatSpec/Comments
 
   
 
 Solidity contracts can also contain NatSpec comments. They are written with a triple slash `///` or a double asterisk block `/** ... */` and they should be used directly above function declarations or statements.
+
+```
+/**
+ * @title Degis Income Sharing Contract
+ * @notice This contract will receive part of the income from Degis products
+ *         And the income will be shared by DEG holders (in the form of veDEG)
+ *
+ *         It is designed to be an ever-lasting reward
+ *
+ *         At first the reward is USDC.e and later may be transferred to Shield
+ *         To enter the income sharing vault, you need to lock some veDEG
+ *             - When your veDEG is locked, it can not be withdrawed
+ *
+ *         The reward is distributed per second like a farming pool
+ *         The income will come from (to be updated)
+ *             - IncomeMaker: Collect swap fee in naughty price pool
+ *             - PolicyCore: Collect deposit/redeem fee in policy core
+ */
+```
 
   
 
