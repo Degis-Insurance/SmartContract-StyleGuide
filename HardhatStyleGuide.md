@@ -154,7 +154,7 @@ Hardhat tests follow a pattern of chained natural language assertions. Those ass
 
 1. Imports
 2. describe
-   * forEach
+   * beforeEach
    * // test assertions
 3. functions
 
@@ -390,6 +390,11 @@ Local and State Variables should use `mixedCase` style.
   
 
 Factories should use `CapWords` style.
+
+
+### Constant Names
+
+Constans should use `UPPER_CASE_WITH_UNDERSCORES` style.
 
   
 ###  Avoiding Naming Collisions
