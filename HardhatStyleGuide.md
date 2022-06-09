@@ -7,7 +7,7 @@ This guide is intended to provide coding conventions for writing hardhat tests, 
 Hardhat allows you to use Truffle to test your smart contracts. It automatically exposes [mocha](https://mochajs.org/) test framework. For more examples, please refer to it.
 
 The preferred assertion library to use is [chai](https://www.chaijs.com/).
-The behavior-driven development (BDD) style utilized in Degis development is [expect](https://www.chaijs.com/guide/styles/#expect). It can also be used as referrence.
+The behavior-driven development (BDD) style utilized in Degis development is [expect](https://www.chaijs.com/guide/styles/#expect). It can also be used as a referrence.
 
 A Degis Hardhat test is typically written in typescript.
 
@@ -150,7 +150,7 @@ import {
 
 ##  Order of Layout
 
-Hardhat tests follow a pattern of chained natural language assertions. Those assertion are encapsulated by its parent assertion:
+Hardhat tests follow a pattern of chained natural language assertions. Those assertions are encapsulated by thier parent assertion:
 
 1. Imports
 2. describe
@@ -160,7 +160,7 @@ Hardhat tests follow a pattern of chained natural language assertions. Those ass
 
 ## Order of Scope
 
-Hardhat tests follow a pattern of chained natural language assertions. Those assertion are encapsulated by its parent assertion:
+Hardhat tests follow a pattern of chained natural language assertions. Those assertions are encapsulated by their parent assertion:
 
 *  describe
    *  nested describe
@@ -174,10 +174,10 @@ Hardhat tests follow a pattern of chained natural language assertions. Those ass
 
 Avoid extraneous whitespace in the following situations:
 
-* Immediately inside parenthesis, brackets or braces, with the exception of single line function declarations.
+* Immediately inside parenthesis, brackets or braces, except for single line function declarations.
 * Immediately before a comma, semicolon.
 * More than one space around an assignment or other operator to align with another.
-* Don’t include a whitespace in the receive and fallback functions.
+* Don’t include whitespace in the receive and fallback functions.
 
 
 `const blockTimestamp = await getLatestBlockTimestamp(ethers.provider);`
@@ -189,7 +189,7 @@ Avoid extraneous whitespace in the following situations:
 
 The braces denoting the body of any component, function, if-statements and loops should:
 
-* open on the same line as the declaration
+* open on the same line as the declaration.
 * close on their own line at the same indentation level as the beginning of the declaration.
 * The opening brace should be preceded by a single space.
 ```
@@ -203,7 +203,7 @@ describe("Factory functions", function () {
 For control structures whose body contains a single statement, omitting the braces is ok if the statement is contained on a single line.
 
 
-For if blocks which have an else or else if clause, the else should be placed on the same line as the if’s closing brace. This is an exception compared to the rules of other block-like structures.
+For if blocks that have an else or else if clause, the else should be placed on the same line as the if’s closing brace. This is an exception compared to the rules of other block-like structures.
 ```
 if (x < 3) {
     x += 1;
@@ -225,9 +225,9 @@ else
 
 Keeping `describe`, `it` and `expect` descriptions to the core expected behavior improves readability. Make sure that your assertions follow a natural language pattern.
 
-Keep it in present tense.
+Keep it in the present tense.
 
-Write all steps in third-person point of view.
+Write all steps from third-person point of view.
 
 `describe` words be Capitalized.
 `it` words should be lowercased.
@@ -253,7 +253,7 @@ The closing brace should be at the same indentation level as the assertion state
 The opening brace should be preceded by a single space.
 
 
-For long statements, it is recommended to drop each parameter and chained assertions onto its own line at the same indentation level as the function body. The closing parenthesis and opening bracket should be placed on their own line as well at the same indentation level as the assertion declaration. 
+For long statements, it is recommended to drop each parameter and chained assertions onto its own line at the same indentation level as the function body. The closing parenthesis should be placed on its own line and at the same indentation level as the assertion declaration. 
 
 ```
 await expect(
@@ -344,7 +344,7 @@ To avoid confusion, the following names will be used to refer to different namin
 
   
 
-Never use any of these for single letter variable names. They are often indistinguishable from the numerals one and zero.
+Never use any of these for single-letter variable names. They are often indistinguishable from the numerals one and zero.
 
   
 
@@ -408,7 +408,7 @@ Private and function parameters should prioritize using `_singleLeadingUnderscor
   
 ##  Comments
 
-Comments are incentivized but not required. Use comments to clarify intent, or intent. It can also be used to indicate required input format or parameter specification. Comments should be placed above what it refers to.
+Comments are incentivized but not required. Use comments to clarify intent. It can also be used to indicate the required input format or parameter specification. Comments should be placed above what it refers to.
 ```
 // 18 decimals for buyer token
 BuyerToken = await ethers.getContractFactory("BuyerToken");

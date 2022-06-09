@@ -7,7 +7,7 @@ This guide is intended to provide coding conventions for writing Solidity code, 
 
   
 
-Much of the structure and recommendations has been taken from [Solidity's style guide](https://docs.soliditylang.org/en/v0.8.13/style-guide.html). For more examples, please refer to it.
+Much of the structure and recommendations have been taken from [Solidity's style guide](https://docs.soliditylang.org/en/v0.8.13/style-guide.html). For more examples, please refer to it.
 
 # Table of Content
 
@@ -75,7 +75,7 @@ Mixing tabs and spaces should be avoided.
 
   
 
-Surround top level declarations in Solidity source with two blank lines.
+Surround top-level declarations in Solidity source with two blank lines.
 
   
 
@@ -199,7 +199,7 @@ Ordering helps readers identify which functions they can call.
 
   
 
-Functions should be grouped according to their functionality beneath its correspondent header comment with the following names:
+Functions should be grouped according to their functionality beneath their correspondent header comment with the following names:
 
 * receive (if exists)
 * fallback (if exists)
@@ -212,7 +212,7 @@ include `pure` functions at the end of each function group.
 
 ### Template
 
-Include the following template to assist on ordering all contract components.
+Include the following template to assist in ordering all contract components.
 
 ```
 // SPDX-License-Identifier: GPL-3.0
@@ -312,10 +312,10 @@ contract A {
 
 Avoid extraneous whitespace in the following situations:
 
-* Immediately inside parenthesis, brackets or braces, with the exception of single line function declarations.
+* Immediately inside parenthesis, brackets or braces, except for single-line function declarations.
 * Immediately before a comma, semicolon.
 * More than one space around an assignment or other operator to align with another.
-* Don’t include a whitespace in the receive and fallback functions.
+* Don’t include whitespace in the receive and fallback functions.
 `mint(position[1], Coin({name: "degis"}));`
   
 
@@ -325,7 +325,7 @@ Avoid extraneous whitespace in the following situations:
 
 The braces denoting the body of a contract, library, functions and structs should:
 
-* open on the same line as the declaration
+* open on the same line as the declaration.
 * close on their own line at the same indentation level as the beginning of the declaration.
 * The opening brace should be preceded by a single space.
 ```
@@ -340,9 +340,7 @@ contract Coin {
 
 The same recommendations apply to the control structures if, else, while, and for.
 
-  
-
-Additionally there should be a single space between the control structures if, while, and for and the parenthetic block representing the conditional, as well as a single space between the conditional parenthetic block and the opening brace.
+Additionally, there should be a single space between the control structures if, while, and for and the parenthetic block representing the conditional, as well as a single space between the conditional parenthetic block and the opening brace.
 
   
 
@@ -350,7 +348,7 @@ For control structures whose body contains a single statement, omitting the brac
 
   
 
-For if blocks which have an else or else if clause, the else should be placed on the same line as the if’s closing brace. This is an exception compared to the rules of other block-like structures.
+For if blocks that have an else or else if clause, the else should be placed on the same line as the if’s closing brace. This is an exception compared to the rules of other block-like structures.
 ```
 if (x < 3) {
     x += 1;
@@ -556,7 +554,7 @@ To avoid confusion, the following names will be used to refer to different namin
 
   
 
-Never use any of these for single letter variable names. They are often indistinguishable from the numerals one and zero.
+Never use any of these for single-letter variable names. They are often indistinguishable from the numerals one and zero.
 
   
 

@@ -1,8 +1,8 @@
 # Hardhat Test Tutorial
 
-This guide is intended to provide a step-by-step tutorial for writing solidity contracts hardhat tests within Degis project development. The goal of this guide is to quickly setup a basic file and give some guidance on some decisions a developer might have to take since writing automated tests when building smart contracts is of crucial importance, as your user's money is what's at stake.
+This guide is intended to provide a step-by-step tutorial for writing solidity contracts hardhat tests within Degis project development. The goal of this guide is to quickly set up a basic file and give some guidance on some decisions a developer might have to take since writing automated tests when building smart contracts is of crucial importance, as your user's money is what's at stake.
 
-[Hardhat Network](https://hardhat.org/) is a local Ethereum network designed for development that is built-in and the default network in Hardhat. You don't need to setup anything to use it. In our tests we're going to use [ethers.js](https://docs.ethers.io/v5/) to interact with Ethereum contracts, and [Mocha](https://mochajs.org/) as our test runner. For BDD assertions Degis uses the `expect` pattern by the [chai](https://www.chaijs.com/) library.
+[Hardhat Network](https://hardhat.org/) is a local Ethereum network designed for development that is built-in and the default network in Hardhat. You don't need to setup anything to use it. In our tests, we're going to use [ethers.js](https://docs.ethers.io/v5/) to interact with Ethereum contracts and [Mocha](https://mochajs.org/) as our test runner. For BDD assertions Degis uses the `expect` pattern by the [chai](https://www.chaijs.com/) library.
 
 ## Starting Project
 
@@ -16,7 +16,7 @@ To initialize a node.js project start by running:
 
 > npm init
 
-Fill in required fields.
+Fill in the required fields.
 
 Install Hardhat and initiate a hardhat project:
 
@@ -206,7 +206,7 @@ import {<YourContract>} from "typechain";
 import {parseUnits, keccak256} from "ethers/lib/utils"
 ```
 
-### Import customized util functions in utils folder
+### Import customized util functions in the utils folder
 ```
 import {formatStablecoin, getLatestTimestamp} from "{RELATIVE_PATH}/utils"
 ```
@@ -299,13 +299,13 @@ describe("Test Name", function() {
  * `it` describes each test.
  * Positive assertions then Negative assertions.
  * `expect` evaluates every test. Make sure to check out [expect BDD language Chains](https://www.chaijs.com/api/bdd/) to make effective evaluations.
- * `await` is used quite often when testing smart contracts. That is due to the nature of blockchain but also because assertions but also testing.
+ * `await` is used quite often when testing smart contracts. That is due to both blockchains and testing nature.
  * `await expect(value)` should be used when a promise is being evaluated (error, revert, emit). `expect` catches the promise and awaits for the promise to resolve to make the evaluation.
  * `expect(await value)` should be used when the value returned by the function is being evaluated. It could be both a value returned by a resolved or rejected Promise.
 
 ## Test Unit Components
 
-Hardhat tests follow a pattern of chained natural language assertions. Those assertion are encapsulated by its parent assertion.
+Hardhat tests follow a pattern of chained natural language assertions. Those assertions are encapsulated by their parent assertion.
 
 * outer describe
    * before || beforeEach || after || afterAll
@@ -339,7 +339,7 @@ To run all tests inside the `test` folder run:
 
 > npx hardhat test
 
-To specificify tests (`it("should be the only test ran")`):
+To specify tests (`it("should be the only test ran")`):
 
 > npx hardhat test --grep "should be the only test ran"
 
