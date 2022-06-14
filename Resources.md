@@ -13,3 +13,11 @@ Using Hardhat with the Avalanche C-Chain
 Using Truffle with the Avalanche C-Chain
 
 > https://docs.avax.network/dapps/smart-contracts/using-truffle-with-the-avalanche-c-chain/
+
+AMMs:
+Part 1:
+> https://joecontent.substack.com/p/part-1-a-brief-overview-of-1st-generation?sd=pf&s=r
+
+Part 2:
+
+Part 3:
