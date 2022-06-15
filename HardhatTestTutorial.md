@@ -345,7 +345,7 @@ To specify tests (`it("should be the only test ran")`):
 
 To run single test files:
 
-> npx hardhat test/{TestToRun}.js
+> npx hardhat test test/{folder}/{TestToRun}.js
 
 To run tests in [parallel](https://hardhat.org/guides/parallel-tests) mode:
 
