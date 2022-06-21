@@ -7,7 +7,7 @@ This guide is intended to provide coding conventions for writing hardhat tests, 
 Hardhat allows you to use Truffle to test your smart contracts. It automatically exposes [mocha](https://mochajs.org/) test framework. For more examples, please refer to it.
 
 The preferred assertion library to use is [chai](https://www.chaijs.com/).
-The behavior-driven development (BDD) style utilized in Degis development is [expect](https://www.chaijs.com/guide/styles/#expect). It can also be used as a referrence.
+The behavior-driven development (BDD) style utilized in Degis development is [expect](https://www.chaijs.com/guide/styles/#expect). It can also be used as a reference.
 
 A Degis Hardhat test is typically written in typescript.
 
