@@ -1,11 +1,8 @@
 
 #  Solidity Style Guide
 
-  
+This guide is intended to provide coding conventions for writing Solidity code, specifically for Degis projects. The goal of this guide is to better the code quality and make it more legible and consistent within Degis development. Use your knowledge and common sense to decide on edge cases.
 
-This guide is intended to provide coding conventions for writing Solidity code, specifically for Degis projects. The goal of this guide is consistency within Degis development.
-
-  
 
 Much of the structure and recommendations have been taken from [Solidity's style guide](https://docs.soliditylang.org/en/v0.8.13/style-guide.html). For more examples, please refer to it.
 

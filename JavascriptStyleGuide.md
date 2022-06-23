@@ -1,10 +1,10 @@
 # Javascript Style Guide
 
-This guide is intended to provide coding conventions for writing Javascript files, specifically for Degis projects. The goal of this guide is consistency within Degis development. Vue, Typescript and React are also covered by these conventions..
+This guide is intended to provide coding conventions for writing Javascript files, specifically for Degis projects. The goal of this guide is consistency within Degis development. Vue, Typescript and React are also covered by these conventions.
 
-You can use and configure (ESLint)[https://eslint.org/] paired with (prettier)[https://prettier.io/] to assist you in better the code quality, making it more legible and more consistent but it might not cover all cases or conventions indicated in this guide. Use your knowledge and common sense to decide on edge cases.
+You can use and configure [ESLint](https://eslint.org/) paired with [prettier](https://prettier.io/) to assist you in better the code quality, making it more legible and more consistent but it might not cover all cases or conventions indicated in this guide. Use your knowledge and common sense to decide on edge cases.
 
-An installation guide for ESLint and Prettier are provided below.
+An installation guide for ESLint and Prettier is provided below.
 
 Two configuration files for .eslintrc and .prettierrc will be provided at the end of this guide to assist you. Toggling `formatOnSave` on VSCode or `Beautify On Save` on Atom will help you automatically apply rules when saved.
 
@@ -32,12 +32,19 @@ Spaces are the preferred indentation method.
 
 Mixing tabs and spaces should be avoided.
 
+Toggle Soft Tabs in your Code Editor if a Tabs person.
+For VSCode Code -> Preferences -> Settings:
+```
+"editor.tabSize": 2,
+"editor.insertSpaces": true,
+"editor.detectIndentation": true
+```
 ### Blank Lines
 
 A single blank line appears:
 
 1. Between consecutive methods in a class or object literal
-2. Within method bodies, sparingly to create logical groupings of statements. Blank lines at the start or end of a function body are not allowed.
+2. Within method bodies, sparingly create logical groupings of statements. Blank lines at the start or end of a function body are not allowed.
 3. Optionally before the first or after the last method in a class or object literal (neither encouraged nor discouraged).
 
 Multiple consecutive blank lines are not encouraged but are permitted.
@@ -82,6 +89,11 @@ import Vue from 'vue';
 import lodash from 'lodash';
 import dayjs from 'dayjs';
 import Dinero from 'dinero.js';
+import {
+  foo,
+  bar,
+  thesis,
+  } from 'techstack.js';
 
 export default ({ app }) => {
   //
@@ -96,10 +108,9 @@ JavaScript files are dependent on several decisions and Tech Stack. As a general
 2. Immediately Invoked Functions
 3. Variables Declaration
 4. Functions
-5.  Execution and Context
+5. Execution and Context
 6. Inits & Event Listeners
 
-   
 ### Whitespace in Expressions
 
 Avoid extraneous whitespace in the following situations:
@@ -156,10 +167,11 @@ else
 - File references and classes should be quoted with double-quotes.
 - When needed, use single quotes for the outermost layer.
 
-`const z = '<div id="container"></div>'` 
+`const z = '<div id="container"></div>'`
 
 - Use template literals \`\` over complex string concatenation, particularly if multiple string literals are involved. Template literals may span multiple lines. If a template literal spans multiple lines, it does not need to follow the indentation of the enclosing block, though it may if the added whitespace does not matter.
-- 
+-
+
 ```
 function arithmetic(a, b) {
   return `Here is a table of arithmetic operations:
@@ -171,42 +183,45 @@ ${a} / ${b} = ${a / b}`;
 ```
 
 ### Semicolons
+
 A semicolon is required after the following situations:
 
- * variable declaration
- * expression
- * return
- * throw
- * break
- * continue
- * do-while
+- variable declaration
+- expression
+- return
+- throw
+- break
+- continue
+- do-while
 
 ### Space
+
 Spaces are not required in the following cases:
 
- * After the property name of the object
- * after prefix unary operator
- * before the postfix unary operator
- * Before function call parentheses
- * Whether it is a function declaration or a function expression, do not use a space before '('
- * Array after '[' and before ']'
- * Object after '{' and before '}'
- * operator '(' after and before ')'
+- After the property name of the object
+- after prefix unary operator
+- before the postfix unary operator
+- Before function call parentheses
+- Whether it is a function declaration or a function expression, do not use a space before '('
+- Array after '[' and before ']'
+- Object after '{' and before '}'
+- operator '(' after and before ')'
 
 Spaces are required in the following situations:
 
- * Before and after binary operators
- * Ternary operator '?:' before and after
- * before code block '{'
- * Before the following keywords: else, while, catch,finally
- * After the following keywords: `if`, `else`, `for`, `while`, `do`, `switch`, `case`, `try`, `catch`, `finally`, `with`, `return`, `typeof`
- * After the single-line comment '//' (if the single-line comment and the code are in the same line, it is also required before '//'), after the multi-line  * comment '*'
- * before the property value of the object
- * For loop, leave a space after the semicolon, if there are multiple preconditions, leave a space after the comma
- * Whether it is a function declaration or a function expression, there must be a space before '{'
- * between the parameters of the function
+- Before and after binary operators
+- Ternary operator '?:' before and after
+- before code block '{'
+- Before the following keywords: else, while, catch,finally
+- After the following keywords: `if`, `else`, `for`, `while`, `do`, `switch`, `case`, `try`, `catch`, `finally`, `with`, `return`, `typeof`
+- After the single-line comment '//' (if the single-line comment and the code are in the same line, it is also required before '//'), after the multi-line _ comment '_'
+- before the property value of the object
+- For loop, leave a space after the semicolon, if there are multiple preconditions, leave a space after the comma
+- Whether it is a function declaration or a function expression, there must be a space before '{'
+- between the parameters of the function
 
 ### No line continuations
+
 Do not use line continuations (that is, ending a line inside a string literal with a backslash) in either ordinary or template string literals. Even though ES5 allows this, it can lead to tricky errors if any trailing whitespace comes after the slash, and is less obvious to readers.
 
 ```
@@ -216,6 +231,7 @@ const longString = 'This is a very long string that far exceeds the 80 ' +
 ```
 
 ### Trailing commas
+
 Include a trailing comma whenever there is a line break between the final element and the closing bracket.
 
 ## Syntax
@@ -236,7 +252,6 @@ Arrow functions provide concise function syntax but might have conflicting issue
 
 Prioritize using `async/await` to handle Promises. Avoid mixing chained declarations (aka. `.then()`) at all cost.
 
-
 ### Error handling
 
 Use `try/catch` to handle errors. It prevents code to break during runtime and offers users a better experience.
@@ -251,16 +266,30 @@ Ternary Operators are a great way to improve readability if used properly. Neste
  result = (foo == bar)  ? result1 :
           (foo == baz)  ? result2 :
           (foo == qux)  ? result3 :
-          (foo == quux) ? result4 : 
+          (foo == quux) ? result4 :
                           fail_result;
 ```
+
+### Constructors
+Never invoke a constructor in a new statement without using parentheses ().
+
+### Import
+
+Avoid using `require` whenever possible. Prioritize utilizing `import/export`.
+
+### Export
+
+When exporting a named function, either use default exports or named exports applying the keyword to the function declaration.
+When exporting a single anonymous function, export using `default` keyword.
+
 
 ## Naming Conventions
 
 Naming conventions are powerful when adopted and used broadly. The use of different conventions can convey significant meta information that would otherwise not be immediately available.
-
 The naming recommendations given here are intended to improve the readability, and thus they are not rules, but rather guidelines to try and help convey the most information through the names of things.
-
+Give as descriptive a name as possible, within reason. Do not worry about saving horizontal space as it is far more important to make your code immediately understandable by a new reader.
+Do not use abbreviations that are ambiguous or unfamiliar to readers outside Degis projects, and do not abbreviate by deleting letters within a word.
+Identifiers use only ASCII letters and digits, and, in a small number of cases noted below, underscores and very rarely (when required by frameworks like Vue) dollar signs.
 Lastly, consistency within a codebase should always supersede any conventions outlined in this document.
 
 ### Naming Styles
@@ -283,9 +312,18 @@ To avoid confusion, the following names will be used to refer to different namin
 
 Never use any of these for single-letter variable names. They are often indistinguishable from the numerals one and zero.
 
+
+### Class Names
+
+Classes should use the `CapWords` style.
+
 ### Component Names
 
 Components should use the `CapWords` style.
+
+### Enum Names
+
+Enums should use the `CapWords` style.
 
 ### Function Names
 
@@ -316,12 +354,13 @@ Scoped constants should use `mixedCase` style.
 Comments are incentivized but not required. Use comments to clarify intent. It can also be used to indicate the required input format or parameter specification.
 Comments should be placed above what it refers to.
 
-
 # ESLint
 
-ESLint is a code formatter with a lot of options and flexibility. It finds and fixes problems in JavaScript code. It requires Node.js and works on Windows, Mac and Linux. Current implementation should *enforce* the rules mentioned in this guide.
+ESLint is a code formatter with a lot of options and flexibility. It finds and fixes problems in JavaScript code. It requires Node.js and works on Windows, Mac and Linux. Current implementation should _enforce_ the rules mentioned in this guide.
 
 `npm install eslint --save-dev` or `yarn add eslint --dev`
+
+
 `npm init @eslint/config` or `yarn create @eslint/config`
 
 Accept standard configs. Then, paste the following in .eslintrc.js:
