@@ -11,7 +11,49 @@ An installation guide for PyLint is provided below.
 A configuration file for .pylintrc will be provided at the end of this guide to assist you.
 Toggling `formatOnSave` on VSCode or `Beautify On Save` on Atom will help you automatically apply rules when saved.
 
-## Code Lay-out
+## Table of Content
+
+```
+code Layout/
+├── indentation
+├── tabs or spaces
+├── maximum line length
+├── backslashes
+├── binary operators line breaks
+├── blank lines
+├── source file encoding
+├── imports
+├── module level dunder names
+├── string quotes
+├── whitespace in expressions and statements
+├── trailing commas
+└── other recommendations
+naming conventions/
+├── naming styles
+├── names to avoid
+├── file names
+├── class names
+├── class attribute names
+├── "magic" object names
+├── type variable names
+├── enum names
+├── function names
+├── function parameter names
+├── local and state variable names
+├── constant names
+├── internal attribute names
+├── function and method arguments
+└──avoiding naming collisions
+programming recommendations/
+├── is not operator
+├── def statements
+├── try/except
+└── return statements
+comments
+pylint
+```
+
+## Code Layout
 
 ### Indentation
 
@@ -50,7 +92,9 @@ if (this_is_one_thing and
 ### Tabs or Spaces
 
 4 spaces are the preferred indentation method.
+
 Tabs or spaces should be used to remain consistent with code that is already indented with tabs.
+
 Python disallows mixing tabs and spaces for indentation.
 
 Toggle Soft Tabs in your Code Editor if a Tabs person.
@@ -98,20 +142,27 @@ income = (gross_wages
 ### Blank Lines
 
 Surround top-level function and class definitions with two blank lines.
+
 Method definitions inside a class are surrounded by a single blank line.
+
 Extra blank lines may be used (sparingly) to separate groups of related functions. Blank lines may be omitted between a bunch of related one-liners (e.g. a set of dummy implementations).
+
 Use blank lines in functions, sparingly, to indicate logical sections.
 
 ### Source File Encoding
 
 Always use UTF-8, and should not have an encoding declaration.
+
 All identifiers in the Python standard library MUST use ASCII-only identifiers.
 
 ### Imports
 
 Imports are always put at the top of the file, just after any module comments and docstrings, and before module globals and constants.
+
 Imports should usually be on separate lines.
+
 If imports have a shared package they might be imported in the same line.
+
 Wildcard imports (from <module> import \*) should be avoided, as they make it unclear which names are present in the namespace, confusing both readers and many automated tools.
 
 ```
@@ -145,12 +196,12 @@ For triple-quoted strings, always use double quote characters to be consistent w
 
 Avoid extraneous whitespace in the following situations:
 
-- Immediately inside parentheses, brackets or braces. However, in a slice the colon acts like a binary operator, and should have equal amounts on either side.
+ * Immediately inside parentheses, brackets or braces. However, in a slice the colon acts like a binary operator, and should have equal amounts on either side.
   `spam(ham[1], {eggs: 2})`
   `ham[: upper_fn(x) : step_fn(x)], ham[:: step_fn(x)]`
-- Immediately before the open parenthesis that starts the argument list of a function call
-- Immediately before the open parenthesis that starts an indexing or slicing
-- More than one space around an assignment (or other) operator to align it with another
+ * Immediately before the open parenthesis that starts the argument list of a function call
+ * Immediately before the open parenthesis that starts an indexing or slicing
+ * More than one space around an assignment (or other) operator to align it with another
 
 ### Trailing Commas
 
@@ -164,19 +215,6 @@ CASES = [
     'exit.ini',
     ]
 ```
-
-### Comments
-
-Comments should be complete sentences. The first word should be capitalized, unless it is an identifier that begins with a lower case letter (never alter the case of identifiers!).
-Block comments generally consist of one or more paragraphs built out of complete sentences, with each sentence ending in a period.
-You should use two spaces after a sentence-ending period in multi- sentence comments, except after the final sentence.
-Ensure that your comments are clear and easily understandable to other speakers of the language you are writing in.
-
-Block comments generally apply to some (or all) code that follows them, and are indented to the same level as that code. Each line of a block comment starts with a # and a single space (unless it is indented text inside the comment).
-Paragraphs inside a block comment are separated by a line containing a single #.
-
-Use inline comments sparingly.
-
 ### Other Recommendations
 
  * Avoid trailing whitespace anywhere. Because it’s usually invisible, it can be confusing: e.g. a backslash followed by a space and a newline does not count as a line continuation marker. Some editors don’t preserve it and many projects (like CPython itself) have pre-commit hooks that reject it.
@@ -186,12 +224,17 @@ Use inline comments sparingly.
  * When combining an argument annotation with a default value, however, do use spaces around the = sign.
 Compound statements (multiple statements on the same line) are generally discouraged.
 
+
 ## Naming Conventions
 
 Naming conventions are powerful when adopted and used broadly. The use of different conventions can convey significant meta information that would otherwise not be immediately available, like conveying privacy intent.
+
 The naming recommendations given here are intended to improve the readability, and thus they are not rules, but rather guidelines to try and help convey the most information through the names of things.
+
 Give as descriptive a name as possible, within reason. Do not worry about saving horizontal space as it is far more important to make your code immediately understandable by a new reader.
+
 Do not use abbreviations that are ambiguous or unfamiliar to readers outside Degis projects, and do not abbreviate by deleting letters within a word.
+
 Lastly, consistency within a codebase should always supersede any conventions outlined in this document.
 
 ### Naming Styles
@@ -241,10 +284,6 @@ Class attributes should use the `__double_leading_underscore` style.
 
 Type Variable names should use the `CapWords` style.
 
-### Component Names
-
-Components should use the `CapWords` style.
-
 ### Enum Names
 
 Enums should use the `CapWords` style.
@@ -275,15 +314,15 @@ Scoped constants should use `lowercase_with_underscores` style.
 
 Internal attributes should use `_singleLeadingUnderscore` style.
 
-### Avoiding Naming Collisions
-
-conventions are suggested when the desired name collides with that of a built-in or otherwise reserved name.
-You should mainly use `singleTrailingUnderscore_` styles.
-
 ### Function and Method Arguments
 
 Always use self for the first argument to instance methods.
 Always use cls for the first argument to class methods.
+
+### Avoiding Naming Collisions
+
+conventions are suggested when the desired name collides with that of a built-in or otherwise reserved name.
+You should mainly use `singleTrailingUnderscore_` styles.
 
 ## Programming Recommendations
 
@@ -328,6 +367,16 @@ def bar(x):
         return None
     return math.sqrt(x)
 ```
+
+## Comments
+
+Comments should be complete sentences. The first word should be capitalized, unless it is an identifier that begins with a lower case letter (never alter the case of identifiers!).
+Block comments generally consist of one or more paragraphs built out of complete sentences, with each sentence ending in a period.
+You should use two spaces after a sentence-ending period in multi- sentence comments, except after the final sentence.
+Ensure that your comments are clear and easily understandable to other speakers of the language you are writing in.
+Block comments generally apply to some (or all) code that follows them, and are indented to the same level as that code. Each line of a block comment starts with a # and a single space (unless it is indented text inside the comment).
+Paragraphs inside a block comment are separated by a line containing a single #.
+Use inline comments sparingly.
 
 ## PyLint
 

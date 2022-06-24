@@ -12,12 +12,41 @@ Two configuration files for .eslintrc and .prettierrc will be provided at the en
 
 ```
 code layout/
-
-variable declarations
-other recommendations
-naming convetions/
-
-comments
+├── indentation
+├── tabs or spaces
+├── blank lines
+├── maximum line length
+├── source file encoding
+└── imports
+order of layout/
+├── whitespace in expressions
+├── control structures
+├── quotation marks
+├── semicolons
+├── no line continuations
+└── trailing commas
+syntax/
+├── variable declarations
+├── function declarations
+├── ayncchoronous functions
+├── error handling
+├── ternary operators
+├── constructors
+├── import
+└── export
+naming conventions/
+├── naming styles
+├── names to avoid
+├── class names
+├── component names
+├── enum names
+├── function names
+├── function parameter names
+├── local and state variable names
+├── constant names
+└── avoiding naming collisions
+Comments
+ESlint
 ```
 
 ## Code Layout
@@ -354,7 +383,7 @@ Scoped constants should use `mixedCase` style.
 Comments are incentivized but not required. Use comments to clarify intent. It can also be used to indicate the required input format or parameter specification.
 Comments should be placed above what it refers to.
 
-# ESLint
+## ESLint
 
 ESLint is a code formatter with a lot of options and flexibility. It finds and fixes problems in JavaScript code. It requires Node.js and works on Windows, Mac and Linux. Current implementation should _enforce_ the rules mentioned in this guide.
 
