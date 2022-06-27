@@ -404,9 +404,9 @@ module.exports = {
   },
   extends: [
     "eslint:recommended",
-    // Vue "plugin:vue/essential",
-    // React "plugin:react/recommended",
-    "plugin:@typescript-eslint/recommended",
+    // "plugin:vue/essential", // Vue
+    // "plugin:react/recommended", // React
+    // "plugin:@typescript-eslint/recommended", // Typescript
     "plugin:prettier/recommended",
     "plugin:node/recommended",
   ],
@@ -418,9 +418,9 @@ module.exports = {
     sourceType: "module",
   },
   plugins: [
-    // Vue "vue",
-    // React "react",
-    // Typescript "@typescript-eslint",
+    // "vue",// Vue 
+    // "react", // React
+    // "@typescript-eslint", // Typescript 
     "prettier",
   ],
   rules: {
