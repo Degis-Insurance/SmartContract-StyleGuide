@@ -654,7 +654,7 @@ Private and function parameters should prioritize using `_singleLeadingUnderscor
 
   
 
-Solidity contracts can also contain NatSpec comments. They are written with a triple slash `///` or a double asterisk block `/** ... */` and they should be used directly above function declarations or statements.
+Degis Solidity contracts contain NatSpec comments. They are written with a double asterisk block `/** ... */` and they should be used directly above function declarations or statements. Uppercases are mandatory. `@notice` block aligns with the first line. @param and @return blocks should be aligned within themselves and should have a distance 
 
 ```
 /**
@@ -672,6 +672,8 @@ Solidity contracts can also contain NatSpec comments. They are written with a tr
  *         The income will come from (to be updated)
  *             - IncomeMaker: Collect swap fee in naughty price pool
  *             - PolicyCore: Collect deposit/redeem fee in policy core
+ * @param _firstParam     Include comments with some space
+ * @return _value         They all should align within itself on the left
  */
 ```
 
